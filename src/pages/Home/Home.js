@@ -2,7 +2,7 @@ import { Card } from "../../components/Card/Card";
 import { useTitle } from "../../hooks/useTitle";
 
 export const Home = () => {
-  const pageTitle = useTitle(`Home`);
+  useTitle(`Home`);
 
   const products = [
     {id: 1000, name: `Sony wh-Ch510 Bluetooth Wireless`, imgSrc: `./assets/images/products/Sony wh-Ch510 Bluetooth Wireless.jpg`, price: 345},
