@@ -1,6 +1,9 @@
 import { Link, NavLink } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 export const Header = ({Logo}) => {
+  const { cartList } = useCart();
+
   return (
     <div className="header">
       <nav className="bg-white border-b-2 border-gray-200 dark:bg-gray-900">
@@ -13,9 +16,9 @@ export const Header = ({Logo}) => {
           </Link>
 
           <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <NavLink to="/cart">
-              <button type="button" className="text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cart: 2</button>
-            </NavLink>
+            <Link to="/cart">
+              <button type="button" className="text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-xl px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Cart: {cartList.length}</button>
+            </Link>
             
             <button data-collapse-toggle="navbar-cta" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
               <span className="sr-only">Open main menu</span>

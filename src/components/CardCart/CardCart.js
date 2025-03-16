@@ -1,4 +1,12 @@
+import { useCart } from "../../context/CartContext";
+
 export const CardCart = ({product}) => {
+  const { removeFromCart } = useCart();
+
+  const handleRemove = () => {
+    removeFromCart(product);
+  };
+
   return (
     <div className="cardcart-wrapper">
       <div className="max-w-screen-xl mx-auto">
@@ -9,7 +17,7 @@ export const CardCart = ({product}) => {
 
           <h4 className="text-xl font-medium">${product.price}</h4>
 
-          <button className="bg-red-600 px-4 py-2 rounded-md text-white">Remove</button>
+          <button onClick={handleRemove} className="bg-red-600 px-4 py-2 rounded-md text-white">Remove</button>
         </div>        
       </div>
     </div>
